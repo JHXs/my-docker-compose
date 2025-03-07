@@ -1,0 +1,25 @@
+services:
+  mtphotos:
+    image: registry.cn-hangzhou.aliyuncs.com/mtphotos/mt-photos:latest
+    container_name: mtphotos
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8063:8063
+    volumes:
+      - ../../storage/mtphotos/config:/config
+      - ../../storage/mtphotos/mt_photos:/upload
+      - /mnt/OneDrive/图片:/photos
+    environment:
+      - TZ=Asia/Shanghai
+      - LANG=C.UTF-8
+    dns:
+      - 114.114.114.114
+    deploy: # 若使用 Compose v3+ 的 Swarm 模式
+      resources:
+        limits:
+          memory: 1g  # 最大内存限制
+          cpus: "3"   # 最多使用 0.5 个 CPU 核心
+        reservations:
+          memory: 512M # 内存预留（软限制）
+          cpus: "1"   # CPU 预留

@@ -1,0 +1,17 @@
+services:
+  alist:
+    image: 'xhofe/alist:latest'
+    container_name: alist
+    volumes:
+      - '../../storage/alist/data:/opt/alist/data'
+      - '/mnt/sdcard:/mnt/sdcard'
+      - '/mnt/sdcard/downloads/tmp:/opt/alist/data/temp/aria2'
+      - /mnt/sdcard/downloads:/downloads
+    ports:
+      - '5244:5244'
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    restart: unless-stopped
+    network_mode: bridge       # 网络模式选择刚才配置的桥接 bridge

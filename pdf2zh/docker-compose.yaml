@@ -1,0 +1,10 @@
+name: pdf2zh
+services:
+  pdf2zh:
+    image: byaidu/pdf2zh:latest
+    container_name: pdf2zh-container
+    ports:
+      - "7860:7860"
+    restart: unless-stopped
+    volumes:
+      - ./output:/app/pdf2zh_files

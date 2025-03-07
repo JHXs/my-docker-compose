@@ -1,0 +1,13 @@
+name: nextchat
+services:
+  chatgpt-next-web:
+    image: yidadaa/chatgpt-next-web
+    container_name: nextchat
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - "3000:3000"
+    environment:
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - CODE=${COD}
+#      - PROXY_URL=http://127.0.0.1:7890 ikunji ikunji

@@ -1,0 +1,12 @@
+services:
+  ddns-go:
+    image: jeessy/ddns-go
+    container_name: ddns-go
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ../../storage/ddns-go:/root
+    # 如果需要环境变量可以添加如下配置（按需添加）
+    environment:
+      - TZ=Asia/Shanghai
+    #   - MY_KEY=value
