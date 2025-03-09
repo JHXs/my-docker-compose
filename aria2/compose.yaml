@@ -14,7 +14,7 @@ services:
       - DISK_CACHE=64M
       - IPV6_MODE=true         # false
       - UPDATE_TRACKERS=true
-     # - CUSTOM_TRACKER_URL=
+      - CUSTOM_TRACKER_URL=https://cf.trackerslist.com/best_aria2.txt
       - TZ=Asia/Shanghai
 #    ports:
 #      - "16800:6800"        # 网页端口
@@ -23,7 +23,7 @@ services:
     volumes:
       - ../../storage/aria2/config:/config
       - /mnt/sdcard/downloads:/downloads
-      - /mnt/sdcard/downloads/tmp:/opt/alist/data/temp/aria2
+      - /mnt/sdcard/downloads/aria2:/opt/alist/data/temp/aria2
 # If you use host network mode, then no port mapping is required.
 # This is the easiest way to use IPv6 networks.
     network_mode: host

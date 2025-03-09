@@ -5,7 +5,8 @@ services:
     volumes:
       - '../../storage/alist/data:/opt/alist/data'
       - '/mnt/sdcard:/mnt/sdcard'
-      - '/mnt/sdcard/downloads/tmp:/opt/alist/data/temp/aria2'
+      - '/mnt/sdcard/downloads/aria2:/opt/alist/data/temp/aria2'
+      - '/mnt/sdcard/downloads/qbit:/opt/alist/data/temp/qbittorrent'
       - /mnt/sdcard/downloads:/downloads
     ports:
       - '5244:5244'
