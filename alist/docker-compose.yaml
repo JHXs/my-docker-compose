@@ -6,13 +6,13 @@ services:
       - '../../storage/alist/data:/opt/alist/data'
       - '/mnt/sdcard:/mnt/sdcard'
       - '/mnt/sdcard/downloads/aria2:/opt/alist/data/temp/aria2'
-      - '/mnt/sdcard/downloads/qbit:/opt/alist/data/temp/qbittorrent'
+      - '/mnt/sdcard/downloads/qbit:/opt/alist/data/temp/qBittorrent'
       - /mnt/sdcard/downloads:/downloads
     ports:
       - '5244:5244'
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=${PUID}
+      - PGID=${PGID}
       - UMASK=022
     restart: unless-stopped
     network_mode: bridge       # 网络模式选择刚才配置的桥接 bridge
